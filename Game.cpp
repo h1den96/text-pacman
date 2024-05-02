@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <fstream>
+#include <ncurses.h>
 
 #define ROWS 20
 #define COLUMNS 40
@@ -48,6 +49,40 @@ int Game::initMap() {
   return 0;
 }
 
+void Game::initEntities() { // Maybe need to set func to int instead of void
+
+  for (int i = ROWS - 2; i > 0; i--) {
+    for (int j = COLUMNS - 1; j > 0; j--) {
+      if (this->map[i][j] == 'P') {
+        this->player.setPositionX(i);
+        this->player.setPositionY(j);
+      }
+    }
+  }
+}
+
+void Game::playerMovement(int mv) {
+
+  if (mv == KEY_UP) {
+    // detect colission
+    // change map
+    // print map
+  } else if (mv == KEY_DOWN) {
+
+  } else if (mv == KEY_LEFT) {
+
+  } else if (mv == KEY_RIGHT) {
+  }
+}
+
+int Game::detectCollision() {
+
+  // if (this->map[][] == '#') {
+  // return 0;
+  //}
+  return 1;
+}
+
 void Game::printMap() {
   for (int i = 0; i < ROWS; i++) {
     for (int j = 0; j < COLUMNS; j++) {
@@ -55,7 +90,8 @@ void Game::printMap() {
     }
     printw("\n");
   }
-  // for (int i = 0; i < ROWS; i++) {
-  // std::cout << map[i] << "\n";
-  //}
 }
+
+void Game::setPlayer(Player player) { this->player = player; }
+
+Player Game::getPlayer() { return this->player; }

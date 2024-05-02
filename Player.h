@@ -13,14 +13,15 @@ private:
 public:
   Player();
   ~Player();
-  void setPlayerPositionX(unsigned int);
-  void setPlayerPositionY(unsigned int);
-  void setPlayerLifes(unsigned int);
-  unsigned int getPlayerPositionX();
-  unsigned int getPlayerPositionY();
-  unsigned int getPlayerLifes();
-  const char getPlayerModel() const;
-  void printPlayerDetails();
+  void setPositionX(unsigned int);
+  void setPositionY(unsigned int);
+  void setLifes(unsigned int);
+  unsigned int getPositionX();
+  unsigned int getPositionY();
+  unsigned int getLifes();
+  const char getModel() const;
+  void printDetails();
+  Player &operator=(Player const &);
 };
 
 #endif
